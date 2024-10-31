@@ -128,10 +128,10 @@ export interface StringPair {
 }
 
 /**
- * Get all pairs of strings with a distance less than or equal to maxDistance.
+ * Get all pairs of strings with a distance less than the maxDistance.
  *
  * @param items - The strings to compare.
- * @param maxDistance - The maximum distance to consider, defaults to `DefaultMaxDistance` if not specified.
+ * @param maxDistance - The maximum distance to consider, must be positive, defaults to `DefaultMaxDistance` if not specified. Using a small number can boost performance.
  * @returns An array of objects with the indices and distance of each pair, each pair's i is smaller than j.
  */
 export function findNearDuplicates(

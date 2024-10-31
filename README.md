@@ -23,11 +23,13 @@ findNearDuplicates(["hello", "hallo", "halo"], 2);
 
 ## Benchmarks
 
-```
+Here's a benchmark of the performance of `findNearDuplicates` using the default max distance of 12.
+
+```text
  DEV  v2.1.4 near-duplicates
 
  ✓ test/index.bench.ts (5) 5211ms
-   ✓ getSmallDistancePairs (5) 5210ms
+   ✓ findNearDuplicates (5) 5210ms
      name                                       hz     min      max     mean      p75      p99     p995     p999     rme  samples
    · small strings                      214,439.85  0.0043   0.2387   0.0047   0.0046   0.0053   0.0071   0.0592  ±0.38%   107220   fastest
    · 10 random strings (20-500 chars)    29,533.57  0.0148   0.2318   0.0339   0.0369   0.0557   0.1355   0.1764  ±0.58%    14767

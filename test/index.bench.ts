@@ -1,7 +1,7 @@
 import { bench, describe } from "vitest"
 import { findNearDuplicates } from "../src"
 
-describe("getSmallDistancePairs", () => {
+describe("findNearDuplicates", () => {
 	bench("small strings", () => {
 		const words = [
 			"cat",
