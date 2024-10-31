@@ -1,6 +1,6 @@
 {
   "name": "near-duplicates",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A TypeScript npm package for finding near duplicate string pairs",
   "main": "./lib/index.js",
   "types": "lib/index.d.ts",
@@ -11,6 +11,9 @@
     "build": "tsc --project tsconfig.build.json",
     "clean": "rm -rf ./lib/",
     "test": "vitest",
+    "format": "biome format --write ./src ./test",
+    "lint": "biome lint ./src ./test",
+    "check": "biome check ./src ./test",
     "bench": "vitest bench",
     "typecheck": "tsc --noEmit"
   },
@@ -34,6 +37,7 @@
   },
   "homepage": "https://github.com/jimexist/near-duplicates#readme",
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "fastest-levenshtein": "^1.0.16",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3",
