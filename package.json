@@ -1,0 +1,42 @@
+{
+  "name": "near-duplicates",
+  "version": "0.1.0",
+  "description": "A TypeScript npm package for finding near duplicate string pairs",
+  "main": "./lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "clean": "rm -rf ./lib/",
+    "test": "vitest",
+    "bench": "vitest bench",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimexist/near-duplicates.git"
+  },
+  "keywords": [
+    "duplicates",
+    "ukkonen",
+    "string-deduplication",
+    "levenshtein"
+  ],
+  "author": {
+    "name": "Jiayu Liu",
+    "url": "https://github.com/jimexist"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jimexist/near-duplicates/issues"
+  },
+  "homepage": "https://github.com/jimexist/near-duplicates#readme",
+  "devDependencies": {
+    "fastest-levenshtein": "^1.0.16",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  }
+}
