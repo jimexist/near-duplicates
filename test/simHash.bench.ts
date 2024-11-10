@@ -1,7 +1,7 @@
 import { bench, describe } from "vitest"
-import { findNearDuplicatesLevenshtein } from "../src/levenshtein"
+import { findNearDuplicatesSimHash } from "../src/simHash"
 
-describe("findNearDuplicatesLevenshtein", () => {
+describe("findNearDuplicatesSimHash", () => {
   const vocabulary = [
     "the",
     "be",
@@ -67,7 +67,7 @@ describe("findNearDuplicatesLevenshtein", () => {
       "cat dog fish bird mouse elephant tiger lion zebra panda",
       "cat dog fish bird mouse elephant tiger lion zebra koala",
     ]
-    findNearDuplicatesLevenshtein(words)
+    findNearDuplicatesSimHash(words)
   })
 
   bench("10 random strings (20-300 words)", () => {
@@ -83,7 +83,7 @@ describe("findNearDuplicatesLevenshtein", () => {
       }
       words.push(textWords.join(" "))
     }
-    findNearDuplicatesLevenshtein(words)
+    findNearDuplicatesSimHash(words)
   })
 
   bench("100 random strings (20-300 words)", () => {
@@ -99,7 +99,7 @@ describe("findNearDuplicatesLevenshtein", () => {
       }
       words.push(textWords.join(" "))
     }
-    findNearDuplicatesLevenshtein(words)
+    findNearDuplicatesSimHash(words)
   })
 
   bench("500 random strings (20-300 words)", () => {
@@ -115,10 +115,10 @@ describe("findNearDuplicatesLevenshtein", () => {
       }
       words.push(textWords.join(" "))
     }
-    findNearDuplicatesLevenshtein(words)
+    findNearDuplicatesSimHash(words)
   })
 
-  bench("2000 random strings (20-300 words)", () => {
+  bench("2k random strings (20-300 words)", () => {
     const words: string[] = []
 
     for (let i = 0; i < 2000; i++) {
@@ -131,6 +131,6 @@ describe("findNearDuplicatesLevenshtein", () => {
       }
       words.push(textWords.join(" "))
     }
-    findNearDuplicatesLevenshtein(words)
+    findNearDuplicatesSimHash(words)
   })
 })
