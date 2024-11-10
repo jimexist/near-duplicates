@@ -83,6 +83,9 @@ export function findNearDuplicatesSimHash(
   const result: StringPair[] = []
   for (let i = 0; i < hashes.length - 1; i++) {
     for (let j = i + 1; j < hashes.length; j++) {
+      if (hashes[i] === 0n && hashes[j] === 0n) {
+        continue
+      }
       const dist = hammingDistance(hashes[i], hashes[j])
       if (dist <= maxDistance) {
         result.push({ i, j, dist })

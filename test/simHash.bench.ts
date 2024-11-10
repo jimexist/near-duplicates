@@ -1,58 +1,58 @@
 import { bench, describe } from "vitest"
-import { findNearDuplicatesSimHash } from "../src/simHash"
+import { findNearDuplicatesSimHash, simHash } from "../src/simHash"
+import vocabulary from "./vocabulary"
+
+describe("simHash", () => {
+  const benchRandomStrings = (count: number) => {
+    const strings: string[] = []
+    for (let i = 0; i < count; i++) {
+      let str = ""
+      const wordCount = Math.floor(Math.random() * (300 - 20 + 1)) + 20
+      for (let j = 0; j < wordCount; j++) {
+        str += `${vocabulary[Math.floor(Math.random() * vocabulary.length)]} `
+      }
+      strings.push(str.trim())
+    }
+
+    strings.map((s) => simHash(s))
+  }
+
+  bench("simhash 1 random string", () => {
+    benchRandomStrings(1)
+  })
+
+  bench("simhash 10 random strings", () => {
+    benchRandomStrings(10)
+  })
+
+  bench("simhash 100 random strings", () => {
+    benchRandomStrings(100)
+  })
+
+  bench("simhash 300 random strings", () => {
+    benchRandomStrings(300)
+  })
+
+  bench("simhash 1000 random strings", () => {
+    benchRandomStrings(1000)
+  })
+})
 
 describe("findNearDuplicatesSimHash", () => {
-  const vocabulary = [
-    "the",
-    "be",
-    "to",
-    "of",
-    "and",
-    "in",
-    "that",
-    "have",
-    "it",
-    "for",
-    "not",
-    "on",
-    "with",
-    "he",
-    "as",
-    "you",
-    "do",
-    "at",
-    "this",
-    "but",
-    "his",
-    "by",
-    "from",
-    "they",
-    "we",
-    "say",
-    "her",
-    "she",
-    "or",
-    "an",
-    "will",
-    "my",
-    "one",
-    "all",
-    "would",
-    "there",
-    "their",
-    "what",
-    "so",
-    "up",
-    "out",
-    "if",
-    "about",
-    "who",
-    "get",
-    "which",
-    "go",
-    "me",
-    "when",
-  ]
+  const generateRandomStrings = (count: number) => {
+    const words: string[] = []
+    for (let i = 0; i < count; i++) {
+      const numWords = Math.floor(Math.random() * (300 - 20 + 1)) + 20
+      const textWords = []
+      for (let j = 0; j < numWords; j++) {
+        textWords.push(
+          vocabulary[Math.floor(Math.random() * vocabulary.length)],
+        )
+      }
+      words.push(textWords.join(" "))
+    }
+    return words
+  }
 
   bench("small strings", () => {
     const words = [
@@ -71,66 +71,18 @@ describe("findNearDuplicatesSimHash", () => {
   })
 
   bench("10 random strings (20-300 words)", () => {
-    const words: string[] = []
-
-    for (let i = 0; i < 10; i++) {
-      const numWords = Math.floor(Math.random() * (300 - 20 + 1)) + 20
-      const textWords = []
-      for (let j = 0; j < numWords; j++) {
-        textWords.push(
-          vocabulary[Math.floor(Math.random() * vocabulary.length)],
-        )
-      }
-      words.push(textWords.join(" "))
-    }
-    findNearDuplicatesSimHash(words)
+    findNearDuplicatesSimHash(generateRandomStrings(10))
   })
 
   bench("100 random strings (20-300 words)", () => {
-    const words: string[] = []
-
-    for (let i = 0; i < 100; i++) {
-      const numWords = Math.floor(Math.random() * (300 - 20 + 1)) + 20
-      const textWords = []
-      for (let j = 0; j < numWords; j++) {
-        textWords.push(
-          vocabulary[Math.floor(Math.random() * vocabulary.length)],
-        )
-      }
-      words.push(textWords.join(" "))
-    }
-    findNearDuplicatesSimHash(words)
+    findNearDuplicatesSimHash(generateRandomStrings(100))
   })
 
   bench("500 random strings (20-300 words)", () => {
-    const words: string[] = []
-
-    for (let i = 0; i < 500; i++) {
-      const numWords = Math.floor(Math.random() * (300 - 20 + 1)) + 20
-      const textWords = []
-      for (let j = 0; j < numWords; j++) {
-        textWords.push(
-          vocabulary[Math.floor(Math.random() * vocabulary.length)],
-        )
-      }
-      words.push(textWords.join(" "))
-    }
-    findNearDuplicatesSimHash(words)
+    findNearDuplicatesSimHash(generateRandomStrings(500))
   })
 
   bench("2k random strings (20-300 words)", () => {
-    const words: string[] = []
-
-    for (let i = 0; i < 2000; i++) {
-      const numWords = Math.floor(Math.random() * (300 - 20 + 1)) + 20
-      const textWords = []
-      for (let j = 0; j < numWords; j++) {
-        textWords.push(
-          vocabulary[Math.floor(Math.random() * vocabulary.length)],
-        )
-      }
-      words.push(textWords.join(" "))
-    }
-    findNearDuplicatesSimHash(words)
+    findNearDuplicatesSimHash(generateRandomStrings(2000))
   })
 })
