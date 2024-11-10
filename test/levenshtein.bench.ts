@@ -1,5 +1,5 @@
 import { bench, describe } from "vitest"
-import { findNearDuplicates } from "../src"
+import { findNearDuplicatesLevenshtein } from "../src/levenshtein"
 
 describe("findNearDuplicates", () => {
 	bench("small strings", () => {
@@ -15,7 +15,7 @@ describe("findNearDuplicates", () => {
 			"that",
 			"chat",
 		]
-		findNearDuplicates(words)
+		findNearDuplicatesLevenshtein(words)
 	})
 
 	bench("10 random strings (20-500 chars)", () => {
@@ -32,7 +32,7 @@ describe("findNearDuplicates", () => {
 			words.push(str)
 		}
 
-		findNearDuplicates(words)
+		findNearDuplicatesLevenshtein(words)
 	})
 
 	bench("100 random strings (20-500 chars)", () => {
@@ -49,7 +49,7 @@ describe("findNearDuplicates", () => {
 			words.push(str)
 		}
 
-		findNearDuplicates(words)
+		findNearDuplicatesLevenshtein(words)
 	})
 
 	bench("500 random strings (20-500 chars)", () => {
@@ -66,7 +66,7 @@ describe("findNearDuplicates", () => {
 			words.push(str)
 		}
 
-		findNearDuplicates(words)
+		findNearDuplicatesLevenshtein(words)
 	})
 
 	bench("2k random strings (20-500 chars)", () => {
@@ -83,6 +83,6 @@ describe("findNearDuplicates", () => {
 			words.push(str)
 		}
 
-		findNearDuplicates(words)
+		findNearDuplicatesLevenshtein(words)
 	})
 })

@@ -1,7 +1,7 @@
 // this is only here to verify that the ukkonen implementation is correct so it's a dev dependency
 import { distance } from "fastest-levenshtein"
 import { describe, test, expect, it } from "vitest"
-import { findNearDuplicates, ukkonen } from "../src"
+import { findNearDuplicatesLevenshtein, ukkonen } from "../src/levenshtein"
 
 describe("ukkonen", () => {
 	test("simple cases", () => {
@@ -49,19 +49,19 @@ describe("ukkonen", () => {
 	})
 })
 
-describe("findNearDuplicates", () => {
+describe("findNearDuplicatesLevenshtein", () => {
 	it("should return empty array for empty input", () => {
-		const result = findNearDuplicates([])
+		const result = findNearDuplicatesLevenshtein([])
 		expect(result).toEqual([])
 	})
 
 	it("should return empty array for single item", () => {
-		const result = findNearDuplicates(["test"])
+		const result = findNearDuplicatesLevenshtein(["test"])
 		expect(result).toEqual([])
 	})
 
 	it("should calculate distances between all pairs", () => {
-		const result = findNearDuplicates(["cat", "bat", "hat"])
+		const result = findNearDuplicatesLevenshtein(["cat", "bat", "hat"])
 		expect(result).toHaveLength(3)
 		expect(result).toContainEqual({ i: 0, j: 1, dist: 1 }) // cat-bat
 		expect(result).toContainEqual({ i: 0, j: 2, dist: 1 }) // cat-hat
@@ -69,25 +69,25 @@ describe("findNearDuplicates", () => {
 	})
 
 	it("should cap distances at maxDistance", () => {
-		const result = findNearDuplicates(["hello", "world"], 3)
+		const result = findNearDuplicatesLevenshtein(["hello", "world"], 3)
 		// distance would be 4, so no result is returned since it exceeds maxDistance
 		expect(result).toEqual([])
 	})
 
 	it("should use length difference optimization", () => {
-		const result = findNearDuplicates(["a", "aaaaa"], 3)
+		const result = findNearDuplicatesLevenshtein(["a", "aaaaa"], 3)
 		// length diff is 4, so no result is returned since it exceeds maxDistance
 		expect(result).toEqual([])
 	})
 
 	it("should handle custom maxDistance", () => {
-		const result = findNearDuplicates(["cat", "cats"], 2)
+		const result = findNearDuplicatesLevenshtein(["cat", "cats"], 2)
 		expect(result).toHaveLength(1)
 		expect(result).toContainEqual({ i: 0, j: 1, dist: 1 })
 	})
 
 	it("should handle custom maxDistance with no matches", () => {
-		const result = findNearDuplicates(["cat", "cats"], 1)
+		const result = findNearDuplicatesLevenshtein(["cat", "cats"], 1)
 		expect(result).toHaveLength(0)
 	})
 
@@ -104,7 +104,7 @@ describe("findNearDuplicates", () => {
 			"that",
 			"chat",
 		]
-		const result = findNearDuplicates(words)
+		const result = findNearDuplicatesLevenshtein(words)
 		// Check a few specific pairs
 		expect(result).toContainEqual({ i: 0, j: 1, dist: 1 }) // cat-bat
 		expect(result).toContainEqual({ i: 0, j: 9, dist: 1 }) // cat-chat
