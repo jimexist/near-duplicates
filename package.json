@@ -44,6 +44,6 @@
     "vitest": "^2.1.4"
   },
   "dependencies": {
-    "xxh3-ts": "^1.0.6"
+    "xxh3-ts": "^2.0.0"
   }
 }
