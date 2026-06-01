@@ -38,7 +38,7 @@
   "homepage": "https://github.com/jimexist/near-duplicates#readme",
   "packageManager": "pnpm@11.5.0",
   "engines": {
-    "node": ">=20",
+    "node": ">=22.13",
     "pnpm": ">=11"
   },
   "devDependencies": {
