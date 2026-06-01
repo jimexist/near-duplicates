@@ -1,6 +1,6 @@
 {
   "name": "near-duplicates",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A TypeScript npm package for finding near duplicate string pairs",
   "type": "module",
   "sideEffects": false,
