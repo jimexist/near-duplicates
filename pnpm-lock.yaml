@@ -4,13 +4,16 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  xxh3-ts@2.0.1: 66e88673c7d846eb6f9bc777129d08d9fadb4e2aac6d9f50e57d88c0cffeed1a
+
 importers:
 
   .:
     dependencies:
       xxh3-ts:
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^2.0.1
+        version: 2.0.1(patch_hash=66e88673c7d846eb6f9bc777129d08d9fadb4e2aac6d9f50e57d88c0cffeed1a)(buffer@6.0.3)
     devDependencies:
       '@types/node':
         specifier: ^20.19.41
@@ -1136,8 +1139,10 @@ packages:
     engines: {node: '>=8'}
     hasBin: true
 
-  xxh3-ts@1.0.6:
-    resolution: {integrity: sha512-mFdXT/i6svQNNmwICmszSfKgnYBGBIaCKzPxYHfpM6e1hxYX2gfGPrI9mKRzSnFpi6ieBIK88TGlaudcPYZW5g==}
+  xxh3-ts@2.0.1:
+    resolution: {integrity: sha512-KlMmYvSfw1o1El6P5srmxKzBvBDHCZiUsGWbXh3WWBS9JdnY8kidCU429/Ty6VYkOvmw8Qj9M/aVIh5asFu/5w==}
+    peerDependencies:
+      buffer: ^6
 
 snapshots:
 
@@ -1951,6 +1956,6 @@ snapshots:
       siginfo: 2.0.0
       stackback: 0.0.2
 
-  xxh3-ts@1.0.6:
+  xxh3-ts@2.0.1(patch_hash=66e88673c7d846eb6f9bc777129d08d9fadb4e2aac6d9f50e57d88c0cffeed1a)(buffer@6.0.3):
     dependencies:
       buffer: 6.0.3

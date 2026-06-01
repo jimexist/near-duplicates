@@ -2,3 +2,5 @@
 # Allow native-binary postinstall scripts for these trusted dependencies.
 allowBuilds:
   esbuild: true
+patchedDependencies:
+  xxh3-ts@2.0.1: patches/xxh3-ts@2.0.1.patch
