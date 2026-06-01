@@ -6,7 +6,6 @@
     "module": "commonjs",
     "noImplicitAny": true,
     "noImplicitThis": true,
-    "outDir": "./lib/",
     "skipLibCheck": true,
     "strict": true,
     "strictBindCallApply": true,
