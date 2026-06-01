@@ -1,5 +1,4 @@
 # pnpm settings (https://pnpm.io/settings)
 # Allow native-binary postinstall scripts for these trusted dependencies.
 allowBuilds:
-  '@biomejs/biome': true
   esbuild: true
