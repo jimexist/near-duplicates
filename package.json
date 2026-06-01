@@ -36,7 +36,13 @@
     "url": "https://github.com/jimexist/near-duplicates/issues"
   },
   "homepage": "https://github.com/jimexist/near-duplicates#readme",
+  "packageManager": "pnpm@11.5.0",
+  "engines": {
+    "node": ">=22.13",
+    "pnpm": ">=11"
+  },
   "devDependencies": {
+    "@types/node": "^20.19.41",
     "fastest-levenshtein": "^1.0.16",
     "oxfmt": "0.52.0",
     "oxlint": "1.67.0",
