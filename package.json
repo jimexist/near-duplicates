@@ -1,15 +1,30 @@
 {
   "name": "near-duplicates",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A TypeScript npm package for finding near duplicate string pairs",
-  "main": "./lib/index.js",
-  "types": "lib/index.d.ts",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
   "files": [
-    "lib/**/*"
+    "dist/**/*"
   ],
   "scripts": {
-    "build": "tsc --project tsconfig.build.json",
-    "clean": "rm -rf ./lib/",
+    "build": "tsdown",
+    "clean": "rm -rf ./dist/",
     "test": "vitest",
     "format": "oxfmt ./src ./test",
     "lint": "oxlint ./src ./test",
@@ -46,7 +61,7 @@
     "fastest-levenshtein": "^1.0.16",
     "oxfmt": "0.52.0",
     "oxlint": "1.67.0",
-    "ts-node": "^10.9.2",
+    "tsdown": "^0.22.1",
     "typescript": "^5.6.3",
     "vitest": "^2.1.4"
   },
