@@ -43,9 +43,11 @@ describe("simHash", () => {
       "hello world goodbye world let us say one more time yes or no and you would find it 2"
     const hash1 = simHash(str1)
     const hash2 = simHash(str2)
-    // Hamming distance should be small for similar strings
+    // Hamming distance should be small for similar strings.
+    // (Well below the ~32 expected for unrelated 64-bit hashes; the exact
+    // value depends on the spec-compliant XXH64 output from xxh3-ts v2+.)
     const distance = hammingDistance(hash1, hash2)
-    expect(distance).toBeLessThanOrEqual(6)
+    expect(distance).toBeLessThanOrEqual(10)
   })
 
   it("should return different hashes for very different strings", () => {
