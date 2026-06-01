@@ -33,27 +33,27 @@ findNearDuplicatesSimHash(["hello", "hallo", "halo"]);
 Here's a benchmark:
 
 ```text
-✓ test/simHash.bench.ts (10) 56774ms
-   ✓ simHash (5) 12264ms
+ ✓ test/simHash.bench.ts > simHash 6075ms
      name                               hz      min      max     mean      p75      p99     p995     p999     rme  samples
-   · simhash 1 random string      2,083.04   0.0518   1.0058   0.4801   0.6830   0.9549   0.9644   0.9802  ±3.21%     1043   fastest
-   · simhash 10 random strings      213.90   2.7978   7.0510   4.6750   5.2650   6.8972   7.0510   7.0510  ±3.30%      107
-   · simhash 100 random strings    21.3373  44.1999  49.4976  46.8664  48.1344  49.4976  49.4976  49.4976  ±2.53%       11
-   · simhash 300 random strings     7.2749   129.05   141.07   137.46   140.56   141.07   141.07   141.07  ±2.11%       10
-   · simhash 1000 random strings    2.1593   446.01   478.71   463.12   468.98   478.71   478.71   478.71  ±1.48%       10   slowest
-   ✓ findNearDuplicatesSimHash (5) 44508ms
-     name                                     hz       min       max      mean       p75       p99      p995      p999     rme  samples
-   · small strings                      3,671.16    0.2435    1.0121    0.2724    0.3050    0.3723    0.3960    0.4288  ±0.66%     1836   fastest
-   · 10 random strings (20-300 words)     213.30    2.6500    6.4142    4.6882    5.2627    6.4088    6.4142    6.4142  ±3.14%      107
-   · 100 random strings (20-300 words)   19.7228   47.9660   52.6941   50.7028   51.6620   52.6941   52.6941   52.6941  ±2.08%       10
-   · 500 random strings (20-300 words)    3.2278    301.06    316.73    309.81    314.19    316.73    316.73    316.73  ±1.34%       10
-   · 2k random strings (20-300 words)     0.4570  2,173.06  2,217.13  2,188.36  2,195.14  2,217.13  2,217.13  2,217.13  ±0.52%       10   slowest
- ✓ test/levenshtein.bench.ts (5) 3823ms
-   ✓ findNearDuplicatesLevenshtein (5) 3822ms
+   · simhash 1 random string      5,110.27   0.0206   0.7252   0.1957   0.2804   0.4044   0.4410   0.6442  ±2.07%     2556
+   · simhash 10 random strings      520.49   0.8857   2.9765   1.9213   2.1339   2.6467   2.7588   2.9765  ±1.95%      261
+   · simhash 100 random strings    52.1100  17.7532  20.6061  19.1902  19.7443  20.6061  20.6061  20.6061  ±1.59%       27
+   · simhash 300 random strings    17.2415  54.6639  60.3338  57.9997  59.6469  60.3338  60.3338  60.3338  ±2.61%       10
+   · simhash 1000 random strings    5.3044   182.90   191.78   188.52   190.47   191.78   191.78   191.78  ±1.20%       10
+
+ ✓ test/simHash.bench.ts > findNearDuplicatesSimHash 20491ms
+     name                                     hz      min      max     mean      p75      p99     p995     p999     rme  samples
+   · small strings                      9,165.99   0.0984   0.2436   0.1091   0.1095   0.1720   0.1849   0.2189  ±0.31%     4583
+   · 10 random strings (20-300 words)     516.42   1.1438   3.7856   1.9364   2.1365   3.0960   3.3427   3.7856  ±2.22%      259
+   · 100 random strings (20-300 words)   48.5475  19.0167  22.6300  20.5984  21.2538  22.6300  22.6300  22.6300  ±1.96%       25
+   · 500 random strings (20-300 words)    7.6835   128.19   132.69   130.15   130.83   132.69   132.69   132.69  ±0.70%       10
+   · 2k random strings (20-300 words)     1.0355   959.39   972.11   965.68   968.48   972.11   972.11   972.11  ±0.29%       10
+
+ ✓ test/levenshtein.bench.ts > findNearDuplicatesLevenshtein 3269ms
      name                                      hz      min      max     mean      p75      p99     p995     p999     rme  samples
-   · small strings                      20,332.35   0.0478   0.2516   0.0492   0.0483   0.0606   0.1190   0.2017  ±0.36%    10167   fastest
-   · 10 random strings (20-300 words)   14,485.47   0.0319   0.2915   0.0690   0.0742   0.1667   0.1928   0.2552  ±0.65%     7243
-   · 100 random strings (20-300 words)   1,168.20   0.7366   1.2375   0.8560   0.8755   1.0863   1.1322   1.2375  ±0.60%      585
-   · 500 random strings (20-300 words)     130.45   7.3067   8.4357   7.6660   7.8399   8.4357   8.4357   8.4357  ±0.76%       66
-   · 2k random strings (20-300 words)     12.4604  79.1898  81.4866  80.2543  80.6677  81.4866  81.4866  81.4866  ±0.69%       10   slowest
+   · small strings                      47,636.82   0.0179   1.7409   0.0210   0.0205   0.0351   0.0415   0.1031  ±0.79%    23819
+   · 10 random strings (20-300 words)   25,655.15   0.0185   0.1682   0.0390   0.0428   0.0583   0.0785   0.1247  ±0.37%    12828
+   · 100 random strings (20-300 words)   2,147.81   0.3924   0.6027   0.4656   0.4815   0.5540   0.5655   0.5919  ±0.37%     1074
+   · 500 random strings (20-300 words)     244.33   3.8278   4.6648   4.0929   4.1653   4.4618   4.6648   4.6648  ±0.63%      123
+   · 2k random strings (20-300 words)     24.0296  41.0116  42.1365  41.6154  41.8456  42.1365  42.1365  42.1365  ±0.49%       13
 ```
